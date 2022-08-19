@@ -6,14 +6,14 @@ from rumps import App, MenuItem
 from googletrans import Translator
 from rumps import quit_application, alert
 
-VERSION = '2022.08.20'
+VERSION = '2022.08.20b'
 
 '''
 It is necessary to implement:
 0) C̶r̶e̶a̶t̶e̶ a̶n̶ a̶p̶p̶r̶o̶x̶i̶m̶a̶t̶e̶ i̶n̶t̶e̶r̶f̶a̶c̶e̶ o̶f̶ t̶h̶e̶ i̶n̶t̶e̶n̶d̶e̶d̶ p̶r̶o̶g̶r̶a̶m̶
 1) I̶m̶p̶l̶e̶m̶e̶n̶t̶ s̶a̶v̶i̶n̶g̶ d̶a̶t̶a̶ t̶o̶ a̶ J̶S̶O̶N̶ f̶i̶l̶e̶ a̶n̶d̶ t̶h̶e̶ a̶b̶i̶l̶i̶t̶y̶ t̶o̶ u̶p̶d̶a̶t̶e̶ p̶r̶o̶g̶r̶a̶m̶s̶ w̶h̶e̶n̶ c̶h̶a̶n̶g̶e̶s̶ a̶r̶e̶ m̶a̶d̶e̶
 2) A̶d̶d̶ b̶u̶t̶t̶o̶n̶s̶:̶ h̶i̶d̶e̶ d̶e̶s̶k̶t̶o̶p̶;̶ h̶i̶d̶e̶ t̶h̶e̶ n̶a̶m̶e̶ o̶f̶ t̶h̶e̶ p̶r̶o̶g̶r̶a̶m̶;̶ f̶i̶n̶d̶ g̶l̶o̶b̶a̶l̶ a̶n̶d̶ l̶o̶c̶a̶l̶ I̶P̶ a̶d̶d̶r̶e̶s̶s̶
-3) Add the ability to select a language
+3) A̶d̶d̶ t̶h̶e̶ a̶b̶i̶l̶i̶t̶y̶ t̶o̶ s̶e̶l̶e̶c̶t̶ a̶ l̶a̶n̶g̶u̶a̶g̶e̶
 4) Create a form to create new notes
 5) Add the ability to delete a note from the database
 6) Implement icon change "day and night"
@@ -64,6 +64,17 @@ def menu():
     GlobalIP = MenuItem(interface[6], key="g", callback = Global)
     LocalIP = MenuItem(interface[7], key="l", callback = Local)
     Exit = MenuItem(interface[8].capitalize(), key="q", callback = Quit)
+
+    for key in content['Accents'].keys():
+        def Language(Accents): 
+            data = ["Сreate Note", "Settings", "Incognito Mode", "Menu Language", "Hide Desktop", "Hide Header", "Find out Global IP", "Find out Local IP", "Quit", "Version", "Notes"]
+            content['Choose']['Language'] = str(Accents).split('\'', 1)[1].split('\'')[0]
+            choose = content['Accents'][content['Choose']['Language']]
+            translated = Translator().translate(data, src='en', dest=choose)
+            content['Choose']['Menu'] = [translated[id].text for id in range(len(translated))]
+            with open('settings.json', 'wt') as w: dump(content, w, sort_keys=True, indent=2)
+            Update()
+        Accents.append( MenuItem( key, callback = Language ) )
 
     return [ Сreate, None, [ interface[1].capitalize(), [ Invisible, [ interface[3], Accents ], None, HideDesktop, Title, None, GlobalIP, LocalIP, None, interface[9].capitalize()+" "+VERSION, None, Exit ] ], None, [ interface[10].capitalize(), Note ] ]
 
