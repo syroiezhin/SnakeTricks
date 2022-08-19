@@ -1,4 +1,21 @@
 {
+  "Choose": {
+    "Language": "English",
+    "Menu": [
+      "\u0421reate Note",
+      "Settings",
+      "Incognito Mode",
+      "Menu Language",
+      "Hide Desktop",
+      "Hide Header",
+      "Find out Global IP",
+      "Find out Local IP",
+      "Quit",
+      "Version",
+      "Notes"
+    ]
+  },
+  "HideDesktop": 0,
   "Incognito": 1,
   "Title": 0
 }
