@@ -13,20 +13,22 @@
   "Choose": {
     "Language": "English",
     "Menu": [
-      "Сreate Note",
+      "Create Note",
       "Settings",
-      "Incognito Mode",
       "Menu Language",
+      "Incognito Mode",
       "Hide Desktop",
-      "Hide Header",
-      "Find out Global IP",
-      "Find out Local IP",
-      "Quit",
+      "Hide Hints",
+      "Hide Name",
+      "Find out global IP",
+      "Find out local IP",
       "Version",
+      "Turn off",
       "Notes"
     ]
   },
   "HideDesktop": 0,
+  "Hints": 0,
   "Incognito": 1,
   "Notes": {
     "URL": [
@@ -36,5 +38,5 @@
       "Google"
     ]
   },
-  "Title": 1
+  "Title": 0
 }
