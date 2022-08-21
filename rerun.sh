@@ -5,8 +5,8 @@
 #_______________________________________________________________#
 
 # #!/bin/bash
-# killall python
-# python MindNotes.py
+killall python
+python MindNotes.py
 
 #_______________________________________________________________#
 # But if you want to compile the app file and run it,           #
@@ -15,8 +15,8 @@
 #_______________________________________________________________#
 
 #!/bin/bash
-killall MindNotes
-cd ..
-cd ..
-cd ..
-open MindNotes.app
+# killall MindNotes
+# cd ..
+# cd ..
+# cd ..
+# open MindNotes.app
