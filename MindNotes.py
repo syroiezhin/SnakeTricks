@@ -6,7 +6,7 @@ from googletrans import Translator # pip install googletrans==4.0.0-rc1
 from rumps import App, MenuItem, Window
 from rumps import quit_application, alert
 
-VERSION = '2022.08.21a'
+VERSION = '2022.08.21b'
 
 '''
 It is necessary to implement:
@@ -89,22 +89,22 @@ def menu():
     Сreate = MenuItem(interface[0], key="c", callback = Add)
     Invisible = MenuItem(interface[3], key="i", callback = Mode)
     Invisible.state = content['Switch']['Incognito']
-    HideDesktop = MenuItem(interface[4], key="d", callback = Desktop)
+    Remove = MenuItem(interface[4], key="r", callback = Delete)
+    HideDesktop = MenuItem(interface[5], key="d", callback = Desktop)
     HideDesktop.state = content['Switch']['HideDesktop']
-    Hints = MenuItem(interface[5], key="h", callback = Hint)
+    Hints = MenuItem(interface[6], key="h", callback = Hint)
     Hints.state = content['Switch']['Hints']
-    Title = MenuItem(interface[6], key="n", callback = Header)
+    Title = MenuItem(interface[7], key="n", callback = Header)
     Title.state = content['Switch']['Title']
-    GlobalIP = MenuItem(interface[7], key="g", callback = Global)
-    LocalIP = MenuItem(interface[8], key="l", callback = Local)
-    Exit = MenuItem(interface[10].capitalize(), key="q", callback = Quit)
-    Remove = MenuItem(interface[12], key="r", callback = Delete)
+    GlobalIP = MenuItem(interface[8], key="g", callback = Global)
+    LocalIP = MenuItem(interface[9], key="l", callback = Local)
+    Exit = MenuItem(interface[11].capitalize(), key="q", callback = Quit)
 
     for key in content['Accents'].keys():
         def Language(Accents): 
             content['Choose']['Language'] = str(Accents).split('\'', 1)[1].split('\'')[0]
             choose = content['Accents'][content['Choose']['Language']]
-            content['Choose']['Menu'] = [ Translator().translate(value, src='en', dest=choose).text for value in ["Create Note","Settings","Menu Language","Incognito Mode","Hide Desktop","Hide Hints","Hide Name","Find out global IP","Find out local IP","Version","Turn off","Notes", "Deleting Notes"] ]
+            content['Choose']['Menu'] = [ Translator().translate(value, src='en', dest=choose).text for value in ["Create Note","Settings","Menu Language","Incognito Mode", "Edit Notes","Hide Desktop","Hide Hints","Hide Name","Find out global IP","Find out local IP","Version","Turn off","Notes"] ]
             with open('settings.json', 'wt') as w: dump(content, w, sort_keys=True, indent=2)
             Update()
         Accents.append( MenuItem( key, callback = Language ) )
@@ -115,6 +115,7 @@ def menu():
             system(f"open -a Google\ Chrome --new --args {content['Notes']['URL'][id]}") if content['Switch']['Incognito'] == 0 else system(f"open -a Google\ Chrome --new --args -incognito {content['Notes']['URL'][id]}")
         Note.append( MenuItem(value, key=str(id+1) if id<9 else None, callback = Notes) )
 
-    return [ Сreate, None, [ interface[1].capitalize(), [ [ interface[2], Accents ], None, Invisible, HideDesktop, Hints, Title, None, GlobalIP, LocalIP, None, interface[9].capitalize()+" "+VERSION, None, Exit ] ], None, [ interface[11].capitalize(), Note] , Remove ]
-
-if __name__ == "__main__": App('MindNotes', icon = 'MN.png', title = 'MindNotes' if load(open('settings.json', 'rt'))['Switch']['Title'] == 0 else None, menu = menu(), quit_button=None).run()
+    return [ Сreate, None, [ interface[1].capitalize(), [ [ interface[2], Accents ], None, Invisible, Remove, None, HideDesktop, Hints, Title, None, GlobalIP, LocalIP, None, interface[10].capitalize()+" "+VERSION, None, Exit ] ], None, [ interface[12].capitalize(), Note] ]
+#                                       'icon.png'
+if __name__ == "__main__": App('␂', icon = 'icon.png', title = 'SnakeTricks' if load(open('settings.json', 'rt'))['Switch']['Title'] == 0 else None, menu = menu(), quit_button=None).run()
+# if __name__ == "__main__": App('␂', icon = None, title = 'SnakeTricks' if load(open('settings.json', 'rt'))['Switch']['Title'] == 0 else None, menu = menu(), quit_button=None).run()
