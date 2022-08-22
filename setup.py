@@ -1,28 +1,22 @@
-from setuptools import setup
-
-"""    python setup.py py2app    """
-
-APP_NAME = "MindNotes"
-APP = ['MindNotes.py']
-DATA_FILES = ['settings.json', 'rerun.sh', 'MN.png']
-OPTIONS = { 
-    'iconfile':'NEU3RON.png',
-    'argv_emulation': True, 
-    'plist': { 'LSUIElement': True }, 
-    'packages': ['pyperclip', 'json', 'googletrans', 'rumps'],
-    'includes': ['pyperclip', 'json', 'googletrans', 'rumps']
-}
+from setuptools import setup # python setup.py py2app
 
 setup(
-    app=APP,
-    name=APP_NAME,
-    data_files=DATA_FILES,
+    app=['SnakeTricks.py'],
+    name="SnakeTricks",
+    data_files=['settings.json', 'rerun.sh', 'icon.png'],
     setup_requires=['py2app'],
-    options={'py2app': OPTIONS},
+    options={'py2app': { 
+        'iconfile':'NEU3RON.png',
+        'argv_emulation': True, 
+        'plist': { 'LSUIElement': True }, 
+        'packages': ['pyperclip', 'json', 'googletrans', 'rumps'],
+        'includes': ['pyperclip', 'json', 'googletrans', 'rumps']
+        }
+    },
 
-    version='1.0',
-    description='scan ip',
-    long_description="Sending ip to mail from a running device",
+    version='2022.08.22',
+    description='menubar asst.',
+    long_description="creates buttons for visiting sites in incognito mode and allows you to call up some useful functions on click thanks to the command line",
 
     author='@NEU3RON',
     license="Syroiezhin",
