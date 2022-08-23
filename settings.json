@@ -10,6 +10,7 @@
     "\u0939\u093f\u0902\u0926\u0940": "hi",
     "\u4e2d\u6587": "zh-cn"
   },
+  "Icon": "icon.png",
   "Interface": {
     "Language": "English",
     "Menu": {
@@ -19,7 +20,9 @@
       "Find out local IP": "Find out local IP",
       "Hide Desktop": "Hide Desktop",
       "Hide Hints": "Hide Hints",
+      "Hide Icon": "Hide Icon",
       "Hide Name": "Hide Name",
+      "Icon Selection": "Icon Selection",
       "Incognito Mode": "Incognito Mode",
       "Menu Language": "Menu Language",
       "Notes": "Notes",
@@ -41,6 +44,7 @@
   "Switch": {
     "Hide Desktop": 0,
     "Hide Hints": 0,
+    "Hide Icon": 1,
     "Hide Name": 1,
     "Incognito Mode": 1
   }

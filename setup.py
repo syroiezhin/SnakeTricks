@@ -14,7 +14,7 @@ setup(
         }
     },
 
-    version='2022.08.22',
+    version='2022.08.23',
     description='menubar asst.',
     long_description="creates buttons for visiting sites in incognito mode and allows you to call up some useful functions on click thanks to the command line",
 
