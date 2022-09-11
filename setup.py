@@ -1,3 +1,10 @@
+'''
+pip install setuptools
+conda install -c conda-forge py2app
+brew reinstall libffi
+brew reinstall emacs
+'''
+
 from setuptools import setup # python setup.py py2app
 
 setup(
@@ -14,7 +21,7 @@ setup(
         }
     },
 
-    version='2022.08.23',
+    version='2022.09.11',
     description='menubar asst.',
     long_description="creates buttons for visiting sites in incognito mode and allows you to call up some useful functions on click thanks to the command line",
 

@@ -1,10 +1,16 @@
-from rumps import App, MenuItem, Window, quit_application, alert#, debug_mode # pip install rumps
-from googletrans import Translator # pip install googletrans==4.0.0-rc1
-from pyperclip import copy # conda install -c conda-forge pyperclip
+'''
+pip install rumps
+pip install googletrans==4.0.0-rc1
+conda install -c conda-forge pyperclip
+'''
+
+from rumps import App, MenuItem, Window, quit_application, alert #, debug_mode
+from googletrans import Translator
 from os import system, popen, path
 from json import load, dump
+from pyperclip import copy
 
-VERSION = '2022.08.23'
+VERSION = '2022.09.11'
 
 '''
 I̶t̶ i̶s̶ n̶e̶c̶e̶s̶s̶a̶r̶y̶ t̶o̶ i̶m̶p̶l̶e̶m̶e̶n̶t̶:̶
